@@ -1,104 +1,114 @@
 body {
     font-family: "Noto Sans Thai", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
+header {
     text-align: center;
-    padding: 24px 16px 8px ;
+    padding: 20px 16px 12px;
 }
 
-header h1{
+header h1 {
     margin: 0 0 6px;
-    font-size: 24px;
+    font-size: 22px;
 }
 
-header p{
+header p {
     margin: 0;
     color: rgb(105, 105, 105);
-    font-size: 20px;
+    font-size: 16px;
 }
 
-main{
+main {
     display: flex;
+    flex-wrap: wrap; /* รองรับหลายการ์ดบนมือถือ */
     justify-content: center;
     padding: 16px;
+    gap: 16px; /* เพิ่มช่องว่างระหว่างการ์ด */
 }
 
-
 .card {
-    border: 5px solid #838383;
+    border: 3px solid #838383;
     border-radius: 10px;
     padding: 16px;
     text-align: center;
+    width: 90%; /* ปรับให้เต็มหน้าจอบนมือถือ */
     max-width: 300px;
+    box-sizing: border-box;
 }
 
 .card img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
 }
 
-.card h2{
+.card h2 {
     margin: 12px 0 6px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
-.card p{
+.card p {
     margin: 0 0 10px;
     font-size: 14px;
     color: #731919;
 }
 
-.card button{
+.card button {
     font-family: "Noto Sans Thai", sans-serif;
     border: 1px solid #ddd;
     background: rgb(188, 188, 188);
     padding: 6px 10px;
     border-radius: 6px;
+    font-size: 14px;
 }
 
-  #overlay {
+#overlay {
     position: fixed;
     inset: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.4);
-  }
+    background: rgba(0,0,0,0.6); /* ทำให้ดูเด่นบนมือถือ */
+    padding: 10px;
+}
 
-  #overlay.open {
+#overlay.open {
     display: flex;
-  }
+}
 
-  .overlay-box {
+.overlay-box {
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
     text-align: center;
-    width: 90%;
+    width: 100%;
     max-width: 320px;
-  }
+    box-sizing: border-box;
+}
 
-  .overlay-box img {
-    width: 120px;
-    height: 120px;
+.overlay-box img {
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-  }
+}
 
-  .overlay-box h2 {
+.overlay-box h2 {
     margin: 10px 0 6px;
-    font-size: 20px;
-  }
+    font-size: 18px;
+}
 
-  .overlay-box p {
+.overlay-box p {
     margin: 0 0 12px;
     color: hwb(0 11% 83%);
-  }
+    font-size: 14px;
+}
 
-  .overlay-box a,
-  .overlay-box button {
+.overlay-box a,
+.overlay-box button {
     display: inline-block;
     margin: 4px;
     padding: 6px 12px;
@@ -108,11 +118,43 @@ main{
     color: hsl(33, 80%, 52%);
     text-decoration: none;
     cursor: pointer;
-  }
+    font-size: 14px;
+}
 
-  footer {
+footer {
     text-align: center;
     color: #777;
-    font-size: 20px;
-    padding: 25px 0;
-  }
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+/* Media Queries สำหรับมือถือเล็ก */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    .card h2 {
+        font-size: 15px;
+    }
+
+    .card p, .card button {
+        font-size: 13px;
+    }
+
+    .overlay-box h2 {
+        font-size: 16px;
+    }
+
+    .overlay-box p, .overlay-box a, .overlay-box button {
+        font-size: 13px;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}

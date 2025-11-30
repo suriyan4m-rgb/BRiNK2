@@ -23,10 +23,10 @@ header p {
 
 main {
     display: flex;
-    flex-wrap: wrap; /* รองรับหลายการ์ดบนมือถือ */
+    flex-wrap: wrap;
     justify-content: center;
     padding: 16px;
-    gap: 16px; /* เพิ่มช่องว่างระหว่างการ์ด */
+    gap: 16px;
 }
 
 .card {
@@ -34,9 +34,9 @@ main {
     border-radius: 10px;
     padding: 16px;
     text-align: center;
-    width: 90%; /* ปรับให้เต็มหน้าจอบนมือถือ */
-    max-width: 300px;
     box-sizing: border-box;
+    width: 100%;      /* default สำหรับมือถือ: คอลัมน์เดียว */
+    max-width: 300px; /* จำกัดขนาดไม่ให้ใหญ่เกินไป */
 }
 
 .card img {
@@ -71,7 +71,7 @@ main {
     display: none;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.6); /* ทำให้ดูเด่นบนมือถือ */
+    background: rgba(0,0,0,0.6);
     padding: 10px;
 }
 
@@ -126,6 +126,19 @@ footer {
     color: #777;
     font-size: 16px;
     padding: 20px 0;
+}
+
+/* Media Queries สำหรับแท็บเล็ตและ desktop */
+@media (min-width: 600px) {
+    .card {
+        width: calc(50% - 16px); /* 2 คอลัมน์ */
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: calc(33.33% - 16px); /* 3 คอลัมน์ */
+    }
 }
 
 /* Media Queries สำหรับมือถือเล็ก */

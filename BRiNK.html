@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1">
+    <title>แนะนำบริษัท</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>บริษัท บริงค์ โทวิงค์ ซิสเทมส์ (ประเทศไทย) จำกัด</h1>
+        <p>64/77-81 หมู่ที่ 4 นิคมอุตสาหกรรมอีสเทิร์นซีบอร์ด (ระยอง) ตำบลปลวกแดง อำเภอปลวกแดง จ.ระยอง 21140</p>
+    </header>
+
+    <main>
+        <div class="card">
+            <!-- เปลี่ยนจาก path D:/ เป็น path แบบเว็บ -->
+            <img src="./img/Brink.png" alt="BRiNK" class="logo-small">
+            <h2>BRINK TOWING SYSTEMS (THAILAND) COMPANY LIMITED</h2>
+            <p>BRiNK TOWING SYSTEMS</p>
+            <button id="butOpen">Detail</button>
+        </div>
+
+        <!-- ภาพใหญ่ด้านล่าง -->
+        <div class="big-image-box">
+            <img src="./img/Brink.png" alt="Brink Large" class="big-image">
+        </div>
+    </main>
+
+    <div id="overlay">
+        <div class="overlay-box">
+            <img src="./img/amzn_0.png" alt="logo amazon">
+            <h2>ข้อมูลของบริษัท</h2>
+            <p>นำเข้า หรือซื้อวัตถุดิบ ชุดสายสำหรับต่อพ่วงอุปกรณ์</p>
+            <a href="https://www.dataforthai.com/company/0105560056218/">บริษัท บริงค์ โทวิงค์ ซิสเทมส์ (ประเทศไทย) จำกัด (Click)</a>
+            <button id="butClose">ปิด</button>
+        </div>
+    </div>
+
+    <footer>
+        © @@ Suriyan Promrach
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const overlay = document.getElementById('overlay');
+            const btnOpen  = document.getElementById('butOpen');
+            const btnClose = document.getElementById('butClose');
+
+            if (!overlay || !btnOpen || !btnClose) {
+                console.error('Missing element(s):', { overlay, btnOpen, btnClose });
+                return;
+            }
+
+            btnOpen.addEventListener('click', () => {
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            btnClose.addEventListener('click', (e) => {
+                e.stopPropagation();
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            overlay.addEventListener('click', (e) => {
+                const target = e.target;
+                const box = target.closest ? target.closest('.overlay-box') : null;
+
+                if (!box) {
+                    overlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
